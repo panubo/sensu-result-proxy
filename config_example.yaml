@@ -1,0 +1,10 @@
+---
+# EXAMPLE CONFIGURATION
+
+# sha2 api key associated with hostname
+
+866e7bfa4f21ce344e6468a221f063959de81202fdd7a0dcc87e91e080519c7a:
+  source: host1.example.com
+
+13548926e9a2ca72fd4677b6a7a81c6d08763356f053ad088772f9c5a46b3120:
+  source: host2.example.com
