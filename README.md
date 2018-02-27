@@ -4,7 +4,15 @@ A simple web service to authenticate and proxy Sensu passive check results.
 
 ## Running
 
-See the `Makefile` for building, and usage.
+This runs in a Docker container.
+
+Environment Variable Configuration:
+
+- `CONFIG_FILE` - Location of api authentication config file
+- `SENSU_API_URI` - Sensu API
+- `DEBUG` - Enable debugging
+
+See the `Makefile` for building, and runtime usage examples.
 
 ## Usage example
 
@@ -17,3 +25,7 @@ curl -s -X POST \
  -d "${JSON}" \
  http://0.0.0.0:8080/result/13548926e9a2ca72fd4677b6a7a81c6d08763356f053ad088772f9c5a46b3120
 ```
+
+## Status
+
+Experimental.
