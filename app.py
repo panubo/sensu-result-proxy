@@ -41,6 +41,7 @@ class CheckCollector(object):
         try:
             headers = {'Content-type': 'application/json'}
             r = requests.post(SENSU_API_URI, data=data, headers=headers)
+            r.raise_for_status()
             return web.accepted()
         except requests.exceptions.RequestException as e:
             print(e)
