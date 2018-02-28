@@ -11,7 +11,7 @@ from config import CONFIG_FILE, DEBUG, SENSU_API_URI, load_config, validate_api_
 # SHA2
 urls = (
     '/', 'Index',
-    '/result/([A-Fa-f0-9]{64})', 'CheckCollector'
+    '/results/([A-Fa-f0-9]{64})', 'CheckCollector'
 )
 
 api_config = load_config(CONFIG_FILE)
@@ -40,7 +40,7 @@ class CheckCollector(object):
 
         try:
             headers = {'Content-type': 'application/json'}
-            r = requests.post(SENSU_API_URI, data=data, headers=headers)
+            r = requests.post(SENSU_API_URI, json=data, headers=headers)
             r.raise_for_status()
             return web.accepted()
         except requests.exceptions.RequestException as e:
