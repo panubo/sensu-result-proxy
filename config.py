@@ -3,6 +3,8 @@ import yaml
 
 CONFIG_FILE = os.environ.get('CONFIG_FILE', '')
 SENSU_API_URI = os.environ.get('SENSU_API_URI', 'http://localhost:4567/results')
+SENSU_API_USER = os.environ.get('SENSU_API_USER', '')
+SENSU_API_PASS = os.environ.get('SENSU_API_PASS', '')
 DEBUG = bool(os.environ.get('DEBUG', 'False').lower() in ("true", "yes", "t", "1"))
 
 

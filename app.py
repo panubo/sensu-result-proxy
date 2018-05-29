@@ -6,7 +6,7 @@ import requests
 import json
 
 
-from config import CONFIG_FILE, DEBUG, SENSU_API_URI, load_config, validate_api_key
+from config import CONFIG_FILE, DEBUG, SENSU_API_URI, SENSU_API_USER, SENSU_API_PASS, load_config, validate_api_key
 
 # SHA2
 urls = (
@@ -40,7 +40,12 @@ class CheckCollector(object):
 
         try:
             headers = {'Content-type': 'application/json'}
-            r = requests.post(SENSU_API_URI, json=data, headers=headers)
+            if SENSU_API_USER and SENSU_API_PASS:
+                if DEBUG: print "AUTH: SENSU_API_USER, XXX"
+                auth=(SENSU_API_USER, SENSU_API_PASS)
+            else:
+                auth=None
+            r = requests.post(SENSU_API_URI, json=data, headers=headers, auth=auth)
             r.raise_for_status()
             return web.accepted()
         except requests.exceptions.RequestException as e:

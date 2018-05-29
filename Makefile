@@ -2,7 +2,7 @@ TAG        := latest
 IMAGE_NAME := panubo/sensu-result-proxy
 REGISTRY   := docker.io
 
-DOCKER_CONFIG := -v $(shell pwd)/config_example.yaml:/config/config.yaml -e CONFIG_FILE=/config/config.yaml
+DOCKER_CONFIG := -v $(shell pwd)/config_example.yaml:/config/config.yaml -e CONFIG_FILE=/config/config.yaml -e SENSU_API_USER=sensu -e SENSU_API_PASS=password
 
 .PHONY: build bash run push
 build:
