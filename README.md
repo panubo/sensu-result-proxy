@@ -1,3 +1,7 @@
+# DECOMMISSIONED
+
+Panubo no longer uses Sensu.
+
 # Sensu Result Proxy
 
 A simple web service to authenticate and proxy Sensu passive check results.
